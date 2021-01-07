@@ -13,31 +13,42 @@
 # 1.3 산술연산
 # 자료형 타입 알아보기
 # class 'int' | 'float' | 'str' | 'bool'
-type(10); type(2.718); type("hello")
+type(10)
+type(2.718)
+type("hello")
 
 # 변수로의 정의
-x = 10; print(x)
-x = 100; print(x)
-y = 3.14; x * y; type(x * y)
+x = 10
+print(x)
+x = 100
+print(x)
+y = 3.14
+x * y
+type(x * y)
 
 # 리스트(의 등장)
 a = [1, 2, 3, 4, 5]
 print(a)
 len(a)
-a[0]; a[4]
-a[4] = 99; print(a)
+a[0]
+a[4]
+a[4] = 99
+print(a)
 a[0:2]
-a[1:]; a[:3]
-a[:-1]; a[:-2]
+a[1:]
+a[:3]
+a[:-1]
+a[:-2]
 
 # 딕셔너리
-me = { "height": 180 }
+me = {"height": 180}
 me["height"]
 me["weight"] = 70
 print(me)
 
 # bool
-hungry = True; sleepy = False
+hungry = True
+sleepy = False
 type(hungry)
 not hungry
 hungry and sleepy
@@ -53,14 +64,18 @@ else:
 for i in [1, 2, 3]:
     print(i)
 
+
 # function
-def hello(object = "World"):
+def hello(object="World"):
     print("Hello " + object + "!")
+
+
 hello()
 hello("cat")
 
 # 1.4 파이썬 스크립트 파일
 # .py로 저장한 파일에 cmd로 접근해 해당 파일을 열면 함수를 실행시킬 수 있다.
+
 
 # 클래스
 class Man:
@@ -68,12 +83,13 @@ class Man:
         self.name = name
         print("Initialized!")
         self.hello()
-    
+
     def hello(self):
         print("Hello " + self.name + "!")
-    
+
     def goodbye(self):
         print("Good-bye " + self.name + "!")
+
 
 m = Man("David")
 m.goodbye()
