@@ -21,7 +21,6 @@ for i in range(iters):
     x_batch = trainX[batch_mask]
     y_batch = trainY[batch_mask]
 
-    # grad = network.numerical_gradient(x_batch, y_batch)
     grad = network.gradient(x_batch, y_batch)
 
     for key in ("W1", "b1", "W2", "b2"):
@@ -65,7 +64,6 @@ for i in range(iters):
     x_batch = trainX[batch_mask]
     y_batch = trainY[batch_mask]
 
-    # grad = network.numerical_gradient(x_batch, y_batch)
     grad = network.gradient(x_batch, y_batch)
 
     for key in ("W1", "b1", "W2", "b2"):

@@ -17,7 +17,6 @@ def numerical_diff(f, x):
 def numerical_gradient_1d(f, x):
     h = 1e-4
     grad = np.zeros_like(x)
-    # zeros_like 설명을 살짝
     for idx in range(x.size):
         tmp_val = x[idx]
 

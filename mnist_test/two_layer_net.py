@@ -23,7 +23,6 @@ class TwoLayerNet:
         z1 = sigmoid(a1)
         a2 = np.dot(z1, W2) + b2
         y = softmax(a2)
-
         return y
 
     def loss(self, x, t):

@@ -220,10 +220,9 @@ def numerical_gradient(f, x):
         fxh1 = f(x)
         x[idx] = tmp_val - h
         fxh2 = f(x)
-
         grad[idx] = (fxh1 - fxh2) / (2 * h)
-        x[idx] = tmp_val
 
+        x[idx] = tmp_val
     return grad
 
 
