@@ -9,7 +9,7 @@ network = neuralnet.init_network()
 
 accuracy_cnt = 0
 for i in range(len(x)):
-    y = neuralnet.predict(network, x[i])
+    y = neuralnet.predict_without_class_layer(network, x[i])
     p = np.argmax(y)  # np.maximum
     if p == t[i]:
         accuracy_cnt += 1
@@ -32,7 +32,7 @@ batch_size = 100
 accuracy_cnt = 0
 for i in range(0, len(x), batch_size):
     x_batch = x[i:i + batch_size]
-    y_batch = neuralnet.predict(network, x_batch)
+    y_batch = neuralnet.predict_without_class_layer(network, x_batch)
     p = np.argmax(y_batch, axis=1)  # in R, 행기준 which.max
     accuracy_cnt += np.sum(p == t[i:i + batch_size])
 
