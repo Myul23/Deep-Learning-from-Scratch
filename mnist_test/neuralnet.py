@@ -1,4 +1,5 @@
 import os, sys
+
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 
 import numpy as np
@@ -8,15 +9,12 @@ from mnist_test.functions import sigmoid, softmax
 
 
 def get_data():
-    (trainX, trainY), (testX, testY) = \
-        load_mnist(normalize=True, flatten=True, one_hot_label=False)
+    (trainX, trainY), (testX, testY) = load_mnist(normalize=True, flatten=True, one_hot_label=False)
     return testX, testY
 
 
 def init_network():
-    with open(
-            "C:\Github Projects\study_store\Deep Learning Projects\mnist_test\sample_weight.pkl",
-            "rb") as f:
+    with open("C:\Github Projects\study_store\Deep Learning Projects\mnist_test\sample_weight.pkl", "rb") as f:
         # 일단 현재 위치로 되어있지만, 필요에 따라 Chapter 안으로 옮겨지면서 같이 옮긴다면 주소를 바꿔야 한다.
         network = pickle.load(f)
     return network

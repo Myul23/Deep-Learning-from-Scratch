@@ -1,4 +1,5 @@
 import os, sys
+
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 
 import numpy as np
@@ -58,7 +59,8 @@ class TwoLayerNet:
     def accuracy(self, x, t):
         y = self.predict(x)
         y = np.argmax(y, axis=1)
-        if t.ndim != 1: t = np.argmax(t, axis=1)
+        if t.ndim != 1:
+            t = np.argmax(t, axis=1)
 
         accuracy = np.sum(y == t) / float(x.shape[0])
         return accuracy
