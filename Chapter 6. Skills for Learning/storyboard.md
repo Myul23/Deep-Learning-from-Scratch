@@ -1,6 +1,4 @@
-# Chapter 6. 학습 관련 기술들
-
-DEB98B, 5EBC88
+# [Chapter 6. 학습 관련 기술들](https://www.miricanvas.com/design/17xkq1)
 
 ## 6.3 배치 정규화
 
