@@ -83,6 +83,6 @@ for i, w in enumerate(weight_scale_list):
         plt.xticks([])
     else:
         plt.xlabel("epochs")
-    plt.legend(loc="lower right")
+    # plt.legend(loc="lower right")
 
 plt.show()
