@@ -126,7 +126,7 @@ class ReLU:
         self.mask = None
 
     def forward(self, x):
-        self.mask = (x <= 0)
+        self.mask = x <= 0
         out = x.copy()
         out[self.mask] = 0
         return out
@@ -138,8 +138,9 @@ class ReLU:
 
 
 import numpy as np
+
 x = np.array([[1.0, -0.5], [-2.0, 3.0]])
-mask = (x <= 0)
+mask = x <= 0
 print(x, mask, sep="\n")
 
 # 5.5.2 Sigmoid 계층

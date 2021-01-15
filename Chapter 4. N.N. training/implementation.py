@@ -47,7 +47,7 @@ import matplotlib.pyplot as plt
 # 모델에 의해 예측된 값과 실제값의 차이를 제곱해 모두 합한 것.
 # 이를 다시 코드로 표현하면
 def sum_squares_error(y, t):
-    return 0.5 * np.sum((y - t)**2)
+    return 0.5 * np.sum((y - t) ** 2)
 
 
 t = [0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
@@ -89,12 +89,13 @@ print(cross_entropy_error(np.array(y), np.array(t)))
 # 이때 선택되는 일부를 미니배치라 부르고 훈련 데이터 중 일부만을 가지고 학습을 진행하는 것을 미니배치 학습이라 함.
 
 import os, sys
+
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 
 import numpy as np
 from mnist_test.mnist import load_mnist
-(trainX, trainY), (testX, testY) = load_mnist(normalize=True,
-                                              one_hot_label=True)
+
+(trainX, trainY), (testX, testY) = load_mnist(normalize=True, one_hot_label=True)
 # train, test 데이터의 클래스 값을 원-핫 인코딩을 한 값을 가져오게 함.
 
 # 해당 데이터에 미니배치 학습을 진행하면
@@ -169,7 +170,7 @@ def numerical_diff(f, x):
 
 # 4.3.2 수치 미분의 예
 def function_1(x):
-    return 0.01 * (x**2) + 0.1 * x
+    return 0.01 * (x ** 2) + 0.1 * x
 
 
 x = np.arange(0.0, 20.0, 0.1)
@@ -189,20 +190,18 @@ print(numerical_diff(function_1, 5), numerical_diff(function_1, 10), sep="\n")
 # 앞선 미분에선 변수가 하나였음. 그런데 편미분은 변수가 하나가 아님.
 # 그렇지만, 크게 달라지는 건 없음. 미분하고자 하는 대상만을 변수로 취급하고 나머지는 상수 취급.
 def function_2(x):
-    return x[0]**2 + x[1]**2
+    return x[0] ** 2 + x[1] ** 2
 
 
 def function_tmp1(x0):
-    return x0 * x0 + 4.0**2.0
+    return x0 * x0 + 4.0 ** 2.0
 
 
 def function_tmp2(x1):
-    return 3.0**2.0 + x1 * x1
+    return 3.0 ** 2.0 + x1 * x1
 
 
-print(numerical_diff(function_tmp1, 3.0),
-      numerical_diff(function_tmp2, 4.0),
-      sep="\n")
+print(numerical_diff(function_tmp1, 3.0), numerical_diff(function_tmp2, 4.0), sep="\n")
 
 
 # 4.4 기울기
@@ -226,10 +225,12 @@ def numerical_gradient(f, x):
     return grad
 
 
-print(numerical_gradient(function_2, np.array([3.0, 4.0])),
-      numerical_gradient(function_2, np.array([0.0, 2.0])),
-      numerical_gradient(function_2, np.array([3.0, 0.0])),
-      sep="\n")
+print(
+    numerical_gradient(function_2, np.array([3.0, 4.0])),
+    numerical_gradient(function_2, np.array([0.0, 2.0])),
+    numerical_gradient(function_2, np.array([3.0, 0.0])),
+    sep="\n",
+)
 
 # numpy의 가독성 좋은, 보기 좋은 출력에 대한 처리가 들어가서 정수로 보임.
 
@@ -267,6 +268,7 @@ print(gradient_descent(function_2, init_x, lr=1e-10))
 # 4.4.2 신경망에서의 기울기
 # 손실 함수에 대한 편미분 기울기는 가중치의 각 원소들로 편미분을 진행하기 때문에 가중치와 shape이 같습니다.
 from mnist_test.simpleNet import *
+
 net = simpleNet()
 print(net.W)
 
@@ -293,22 +295,14 @@ print(dW)
 from mnist_test.two_layer_net import *
 
 net = TwoLayerNet(inputs=784, hiddens=100, outputs=10)
-print(net.params["W1"].shape,
-      net.params["b1"].shape,
-      net.params["W2"].shape,
-      net.params["b2"],
-      sep="\n")
+print(net.params["W1"].shape, net.params["b1"].shape, net.params["W2"].shape, net.params["b2"], sep="\n")
 
 x = np.random.rand(100, 784)
 t = np.random.rand(100, 10)
 y = net.predict(x)
 
 grads = net.numerical_gradient(x, t)
-print(grads["W1"].shape,
-      grads["b1"].shape,
-      grads["W2"].shape,
-      grads["b2"],
-      sep="\n")
+print(grads["W1"].shape, grads["b1"].shape, grads["W2"].shape, grads["b2"], sep="\n")
 
 # 가중치 초기값은 다 0으로 초기화하면 경사하강법을 제대로 움직이지 못하게 하고,
 # 특정 수로 주자니 반복수 내에 값이 수렴하지 않을 수도 있음. 등등을 이유로 임의의 값으로 초기화한다.
