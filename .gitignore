@@ -1,0 +1,14 @@
+.vscode
+test.*
+*.zip
+*.gz
+
+# PyCharm 환경 변수 파일들로 보임.
+.idea
+__pycache__
+# quizes 돌리다가
+*.txt
+# 몇 주차.txt가 생길 것을 없애고자
+sample_dir
+# 폴더 만들어지는 걸 없애고자
+*.pkl

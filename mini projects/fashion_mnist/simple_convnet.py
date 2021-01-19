@@ -161,4 +161,3 @@ class SimpleConvNet:
         for i, key in enumerate(["Conv1", "Affine1", "Affine2"]):
             self.layers[key].W = self.params["W" + str(i + 1)]
             self.layers[key].b = self.params["b" + str(i + 1)]
-
